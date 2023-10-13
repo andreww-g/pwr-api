@@ -1,9 +1,5 @@
-import {
-  IsString,
-  MinLength,
-  IsNotEmpty,
-  IsAlphanumeric,
-} from 'class-validator';
+import { IsNotEmpty, IsString, MinLength } from 'class-validator';
+
 export class CreateUserDto {
   @IsString()
   @MinLength(2, { message: 'Must contain at least 2 characters.' })
@@ -12,6 +8,6 @@ export class CreateUserDto {
 
   @IsNotEmpty()
   @MinLength(3, { message: 'Must contain at least 3 characters' })
-  @IsAlphanumeric(null, { message: 'Alpha numeric charts arent allowed' })
+  @IsString()
   username: string;
 }
